@@ -13,7 +13,7 @@ spec:
       repoURL: https://metallb.github.io/metallb
       targetRevision: 0.14.8
     - repoURL: https://github.com/Yannik26/argo-infrastructure/
-      path: networking/metallb/
+      path: network/metallb/
       targetRevision: HEAD
   syncPolicy:
     automated:
