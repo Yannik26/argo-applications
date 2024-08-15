@@ -8,12 +8,14 @@ spec:
     namespace: metallb-system
     server: https://kubernetes.default.svc
   project: default
-  sources:
+  source:
     - chart: metallb
       repoURL: https://metallb.github.io/metallb
       targetRevision: 0.14.8
     # - repoURL:
   syncPolicy:
+    automated:
+      prune: true
     syncOptions:
     - CreateNamespace=true
 
