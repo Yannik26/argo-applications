@@ -19,7 +19,7 @@ spec:
           dns01RecursiveNameserversOnly: true
           podDnsPolicy: "None"
           podDnsConfig:
-            nameservers:
+              nameservers:
               - "1.1.1.1"
               - "8.8.8.8"
 
