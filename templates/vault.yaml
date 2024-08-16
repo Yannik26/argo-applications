@@ -9,6 +9,14 @@ spec:
     - chart: vault
       repoURL: https://helm.releases.hashicorp.com
       targetRevision: v0.28.1 # Replace with the Vault version you'd like to install or upgrade to
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: longhorn-system
+  syncPolicy:
+    automated:
+      prune: true
+    syncOptions:
+      - CreateNamespace=true
       helm:
         values: |
           serverTelemetry:
@@ -29,7 +37,7 @@ spec:
 
               # Optionally use ingressClassName instead of deprecated annotation.
               # See: https://kubernetes.io/docs/concepts/services-networking/ingress/#deprecated-annotation
-              ingressClassName: ""
+              ingressClassName: "traefik"
 
               # As of Kubernetes 1.19, all Ingress Paths must have a pathType configured. The default value below should be sufficient in most cases.
               # See: https://kubernetes.io/docs/concepts/services-networking/ingress/#path-types for other possible values.
@@ -80,11 +88,3 @@ spec:
             ui:
               enabled: true
 
-  destination:
-    server: https://kubernetes.default.svc
-    namespace: longhorn-system
-  syncPolicy:
-    automated:
-      prune: true
-    syncOptions:
-      - CreateNamespace=true
