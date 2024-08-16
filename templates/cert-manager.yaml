@@ -1,0 +1,33 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: cert-manager
+  namespace: argocd
+spec:
+  project: default
+  sources:
+    - repoURL: https://github.com/Yannik26/argo-secrets/
+      path: network/cert-manager/
+      targetRevision: HEAD
+    - chart: cert-manager
+      repoURL: https://charts.jetstack.io
+      targetRevision: v1.15.3 # Replace with the cert-manager version you'd like to install or upgrade to
+      helm:
+        values: |
+          crds.enabled: true
+          dns01RecursiveNameservers: "1.1.1.1:53,9.9.9.9:53"
+          dns01RecursiveNameserversOnly: true
+          podDnsPolicy: "None"
+          podDnsConfig:
+            nameservers:
+              - "1.1.1.1"
+              - "8.8.8.8"
+
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: cert-manager
+  syncPolicy:
+    automated:
+      prune: true
+    syncOptions:
+      - CreateNamespace=true
