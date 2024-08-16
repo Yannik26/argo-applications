@@ -16,7 +16,7 @@ spec:
       targetRevision: v0.28.1 # Replace with the Vault version you'd like to install or upgrade to
   destination:
     server: https://kubernetes.default.svc
-    namespace: longhorn-system
+    namespace: vault
     helm:
       values: |
         serverTelemetry:
