@@ -14,7 +14,9 @@ spec:
       targetRevision: v1.15.3 # Replace with the cert-manager version you'd like to install or upgrade to
       helm:
         values: |
-          crds.enabled: true
+          crds:
+            enabled: true
+            keep: true
           dns01RecursiveNameservers: "1.1.1.1:53,9.9.9.9:53"
           dns01RecursiveNameserversOnly: true
           podDnsPolicy: "None"
