@@ -15,22 +15,17 @@ spec:
       helm:
         values: |
         global:
-          env:
-            - name: AUTHENTIK_SECRET_KEY
-              secretKeyRef:
-                name: authentik-secret
-                key: authentik-secret
-        #   envFrom:
-        #     - secretRef:
-        #         name: authentik-creds
-        authentik:
-          #   secret_key: env://AUTHENTIK_SECRET_KEY
-          # This sends anonymous usage-data, stack traces on errors and
-          # performance data to sentry.io, and is fully opt-in
-          error_reporting:
-            enabled: true
-          postgresql:
-            password: env://AUTHENTIK_POSTGRESQL__PASSWORD
+          envFrom:
+            - secretRef:
+                name: authentik-creds
+        # authentik:
+        #   #   secret_key: env://AUTHENTIK_SECRET_KEY
+        #   # This sends anonymous usage-data, stack traces on errors and
+        #   # performance data to sentry.io, and is fully opt-in
+        #   error_reporting:
+        #     enabled: true
+        #   postgresql:
+        #     password: env://AUTHENTIK_POSTGRESQL__PASSWORD
 
         server:
           ingress:
