@@ -21,7 +21,7 @@ spec:
             existingSecret: keycloak-admin
             passwordSecretKey: adminPassword
           tls:
-            enabled: true
+            enabled: false
             # existingSecret: sso.yannikmueller.eu-tls
           production: false
           ingress:
