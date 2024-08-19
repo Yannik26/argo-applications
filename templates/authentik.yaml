@@ -28,6 +28,9 @@ spec:
           #     password: env://AUTHENTIK_POSTGRESQL__PASSWORD
 
           server:
+            service:
+              ui: 
+                type: LoadBalancer
             ingress:
               # Specify kubernetes ingress controller class name
               ingressClassName: traefik
@@ -47,9 +50,7 @@ spec:
             enabled: true
           preUpgradeChecker:
             jobEnabled: false
-          service:
-            ui:
-              type: LoadBalancer
+
   destination:
     server: https://kubernetes.default.svc
     namespace: authentik
