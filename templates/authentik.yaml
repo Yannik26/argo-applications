@@ -14,42 +14,42 @@ spec:
       targetRevision: 2024.6.3 # Replace with the Authentik version you'd like to install or upgrade to
       helm:
         values: |
-        global:
-          envFrom:
-            - secretRef:
-                name: authentik-creds
-        authentik:
-          secret_key: "testSecret"
-        #   # This sends anonymous usage-data, stack traces on errors and
-        #   # performance data to sentry.io, and is fully opt-in
-        #   error_reporting:
-        #     enabled: true
-        #   postgresql:
-        #     password: env://AUTHENTIK_POSTGRESQL__PASSWORD
+          global:
+            envFrom:
+              - secretRef:
+                  name: authentik-creds
+          authentik:
+          #   secret_key: "testSecret"
+          #   # This sends anonymous usage-data, stack traces on errors and
+          #   # performance data to sentry.io, and is fully opt-in
+            error_reporting:
+              enabled: true
+          #   postgresql:
+          #     password: env://AUTHENTIK_POSTGRESQL__PASSWORD
 
-        server:
-          ingress:
-            # Specify kubernetes ingress controller class name
-            ingressClassName: traefik
-            annotations:
-              cert-manager.io/cluster-issuer: letsencrypt-staging
+          server:
+            ingress:
+              # Specify kubernetes ingress controller class name
+              ingressClassName: traefik
+              annotations:
+                cert-manager.io/cluster-issuer: letsencrypt-staging
+              enabled: true
+              hosts:
+                - sso.yannikmueller.eu
+              tls:
+                - secretName: sso.yannik-mueller.eu-tls
+                  hosts:
+                    - sso.yannikmueller.eu
+          postgresql:
             enabled: true
-            hosts:
-              - sso.yannikmueller.eu
-            tls:
-              - secretName: sso.yannik-mueller.eu-tls
-                hosts:
-                  - sso.yannikmueller.eu
-        postgresql:
-          enabled: true
 
-        redis:
-          enabled: true
-        preUpgradeChecker:
-          jobEnabled: false
-        service:
-          ui:
-            type: LoadBalancer
+          redis:
+            enabled: true
+          preUpgradeChecker:
+            jobEnabled: false
+          service:
+            ui:
+              type: LoadBalancer
   destination:
     server: https://kubernetes.default.svc
     namespace: authentik
