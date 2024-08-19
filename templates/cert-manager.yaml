@@ -9,6 +9,9 @@ spec:
     - repoURL: https://github.com/Yannik26/argo-secrets.git
       path: network/cert-manager/
       targetRevision: HEAD
+    - repoURL: https://github.com/Yannik26/argo-infrastructure.git
+      path: network/cert-manager/
+      targetRevision: HEAD
     - chart: cert-manager
       repoURL: https://charts.jetstack.io
       targetRevision: v1.15.3 # Replace with the cert-manager version you'd like to install or upgrade to
