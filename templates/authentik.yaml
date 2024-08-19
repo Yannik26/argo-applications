@@ -18,8 +18,8 @@ spec:
           envFrom:
             - secretRef:
                 name: authentik-creds
-        # authentik:
-        #   #   secret_key: env://AUTHENTIK_SECRET_KEY
+        authentik:
+          secret_key: "testSecret"
         #   # This sends anonymous usage-data, stack traces on errors and
         #   # performance data to sentry.io, and is fully opt-in
         #   error_reporting:
