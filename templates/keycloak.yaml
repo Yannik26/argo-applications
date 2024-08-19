@@ -6,9 +6,9 @@ metadata:
 spec:
   project: default
   sources:
-    # - repoURL: https://github.com/Yannik26/argo-secrets.git
-    #   path: network/cert-manager/
-    #   targetRevision: HEAD
+    - repoURL: https://github.com/Yannik26/argo-secrets.git
+      path: auth/keycloak/
+      targetRevision: HEAD
     - chart: keycloak
       repoURL: https://charts.bitnami.com/bitnami
       targetRevision: 22.1.* # Replace with the keycloak version you'd like to install or upgrade to
