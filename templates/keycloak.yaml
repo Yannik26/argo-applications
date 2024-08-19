@@ -31,13 +31,13 @@ spec:
             annotations:
               cert-manager.io/cluster-issuer: letsencrypt-staging
             tls: true
-          adminIngress:
-            enabled: true
-            ingressClassName: "traefik"
-            hostname: keycloak.yannikmueller.eu
-            annotations:
-              cert-manager.io/cluster-issuer: letsencrypt-staging
-            tls: true
+        #   adminIngress:
+        #     enabled: true
+        #     ingressClassName: "traefik"
+        #     hostname: keycloak.yannikmueller.eu
+        #     annotations:
+        #       cert-manager.io/cluster-issuer: letsencrypt-staging
+        #     tls: true
 
   destination:
     server: https://kubernetes.default.svc
