@@ -1,0 +1,75 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: vaultwarden
+  namespace: argocd
+spec:
+  project: default
+  sources:
+    - repoURL: https://github.com/Yannik26/argo-secrets.git
+      path: apps/vaultwarden/
+      targetRevision: HEAD
+    - chart: vaultwarden
+      repoURL: https://guerzon.github.io/vaultwarden
+      targetRevision: 0.24.* # Replace with the cert-manager version you'd like to install or upgrade to
+      helm:
+        values: |
+          image:
+            tag: "1.32.0"
+          adminToken:
+            existingSecret: ""
+            existingSecretKey: ""
+          domain: "https://vault.yannikmueller.eu"
+          signupsAllowed: false
+          signupDomains: "yannik-mueller.de"
+          invitationsAllowed: true
+          websocket:
+            enabled: false
+          ingress:
+            enabled: true
+            hostname: vault.yannikmueller.eu
+            class: "traefik"
+            nginxIngressAnnotations: true
+            additionalAnnotations:
+                cert-manager.io/cluster-issuer: letsencrypt
+            labels: {}
+            tls: true
+            tlsSecret: "vault.yannikmueller.eu-tls"
+            path: "/"
+            pathWs: "/notifications/hub"
+            pathType: "Prefix"
+            pathTypeWs: "Exact"
+          database:
+            type: "default"
+          smtp:
+            host: "smtp.goneo.de"
+            from: "vaultwarden@yannik-mueller.de"
+            fromName: "Vaultwarden"
+            existingSecret: "vw-secret"
+            security: "force_tls"
+            port: 465
+            username:
+              existingSecretKey: "smtp-username"
+            password:
+              existingSecretKey: "smtp-password"
+            authMechanism: "Login"
+            debug: false
+          data:
+            name: "vaultwarden-data"
+            size: "20Gi"
+            class: "longhorn"
+            path: "/data"
+          storage:
+            enabled: true
+            size: "15Gi"
+            class: "longhorn"
+            dataDir: "/data"
+
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: vaultwarden
+  syncPolicy:
+    automated:
+      prune: true
+    syncOptions:
+      - CreateNamespace=true
