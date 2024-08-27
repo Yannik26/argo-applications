@@ -16,6 +16,8 @@ spec:
         values: |
           providers:
             kubernetesIngress:
+              publishedService:
+                enabled: true
               ingressEndpoint:
                 publishedService: "traefik/traefik"
 
