@@ -17,7 +17,7 @@ spec:
           providers:
             kubernetesIngress:
               ingressEndpoint:
-                publishedService: "traefik/treafik"
+                publishedService: "traefik/traefik"
 
   syncPolicy:
     automated:
