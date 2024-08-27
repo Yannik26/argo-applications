@@ -12,10 +12,15 @@ spec:
     - chart: traefik
       repoURL: https://traefik.github.io/charts
       targetRevision: 30.0.2
-    # - repoURL:
+      helm:
+        values: |
+          providers:
+            kubernetesIngress:
+              ingressEndpoint:
+                publishedService: "traefik/treafik"
+
   syncPolicy:
     automated:
       prune: true
     syncOptions:
-    - CreateNamespace=true
-
+      - CreateNamespace=true
