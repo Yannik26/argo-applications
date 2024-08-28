@@ -34,8 +34,6 @@ spec:
               existingSecretKey: installation-key
             relayUri: "https://api.bitwarden.eu"
             identityUri: "https://identity.bitwarden.eu"
-          extraSecrets:
-            - key: 
           ingress:
             enabled: true
             hostname: vault.yannikmueller.eu
