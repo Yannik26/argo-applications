@@ -25,6 +25,17 @@ spec:
           invitationsAllowed: true
           websocket:
             enabled: false
+          pushNotifications:
+            enabled: true
+            existingSecret: bitwarden-installation-id-key
+            installationId:
+              secretKey: installation-id
+            installationKey:
+              secretKey: installation-key
+            relayUri: "https://api.bitwarden.eu"
+            identityUri: "https://identity.bitwarden.eu"
+          extraSecrets:
+            - key: 
           ingress:
             enabled: true
             hostname: vault.yannikmueller.eu
