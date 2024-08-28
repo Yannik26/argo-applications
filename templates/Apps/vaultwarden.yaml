@@ -11,7 +11,7 @@ spec:
       targetRevision: HEAD
     - chart: vaultwarden
       repoURL: https://guerzon.github.io/vaultwarden
-      targetRevision: 0.24.* # Replace with the cert-manager version you'd like to install or upgrade to
+      targetRevision: 0.24.4 # Replace with the cert-manager version you'd like to install or upgrade to
       helm:
         values: |
           image:
