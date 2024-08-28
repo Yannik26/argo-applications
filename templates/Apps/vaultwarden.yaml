@@ -29,9 +29,9 @@ spec:
             enabled: true
             existingSecret: bitwarden-installation-id-key
             installationId:
-              secretKey: installation-id
+              existingSecretKey: installation-id
             installationKey:
-              secretKey: installation-key
+              existingSecretKey: installation-key
             relayUri: "https://api.bitwarden.eu"
             identityUri: "https://identity.bitwarden.eu"
           extraSecrets:
