@@ -17,8 +17,8 @@ spec:
           image:
             tag: "1.32.0"
           adminToken:
-            existingSecret: ""
-            existingSecretKey: ""
+            existingSecret: "vaultwarden-admin-token"
+            existingSecretKey: "admin-token"
           domain: "https://vault.yannikmueller.eu"
           signupsAllowed: false
           signupDomains: "yannik-mueller.de"
