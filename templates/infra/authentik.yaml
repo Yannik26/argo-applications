@@ -24,8 +24,8 @@ spec:
           #   # performance data to sentry.io, and is fully opt-in
             error_reporting:
               enabled: true
-          #   postgresql:
-          #     password: env://AUTHENTIK_POSTGRESQL__PASSWORD
+            postgresql:
+              password: "SuperSecretDatabasePasswordIsHere123456!/#"
 
           server:
             service:
@@ -45,6 +45,7 @@ spec:
                     - sso.yannikmueller.eu
           postgresql:
             enabled: true
+            password: "SuperSecretDatabasePasswordIsHere123456!/#"
 
           redis:
             enabled: true
