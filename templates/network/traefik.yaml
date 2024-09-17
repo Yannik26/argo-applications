@@ -14,6 +14,9 @@ spec:
       targetRevision: 30.0.2
       helm:
         values: |
+          ingressRoute:
+            dashboard:
+              enabled: true
           providers:
             kubernetesIngress:
               publishedService:
