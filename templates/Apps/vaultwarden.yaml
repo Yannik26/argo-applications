@@ -81,6 +81,7 @@ spec:
             size: "15Gi"
             class: "longhorn"
             dataDir: "/data"
+          timezone: "Europe/Berlin"
 
   destination:
     server: https://kubernetes.default.svc
