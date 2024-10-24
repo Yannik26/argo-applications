@@ -9,9 +9,9 @@ spec:
     # - repoURL: https://github.com/Yannik26/argo-secrets.git
     #   path: infra/argocd
     #   targetRevision: HEAD
-    - repoURL: https://github.com/Yannik26/argo-infrastructure.git
-      path: infra/argocd
-      targetRevision: HEAD
+    # - repoURL: https://github.com/Yannik26/argo-infrastructure.git
+    #   path: infra/argocd
+    #   targetRevision: HEAD
     - chart: argo-cd
       repoURL: https://argoproj.github.io/argo-helm
       targetRevision: 7.6.12 # Replace with the Longhorn version you'd like to install or upgrade to
