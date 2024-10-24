@@ -12,7 +12,35 @@ spec:
     - repoURL: https://github.com/Yannik26/argo-infrastructure.git
       path: infra/argocd
       targetRevision: HEAD
-  destination:
+    - chart: argo-cd
+      repoURL: https://argoproj.github.io/argo-helm
+      targetRevision: 7.6.12 # Replace with the Longhorn version you'd like to install or upgrade to
+      helm:
+        values: |
+          global:
+            domain: ardocd.yannikmueller.eu
+            deploymentStrategy:
+              type: RollingUpdate
+              rollingUpdate:
+                maxSurge: 25%
+                maxUnavailable: 25%
+          configs:
+            cm:
+              exec.enabled: true
+          server:
+            autoscaling:
+              enabled: true
+            certificate:
+              enabled: true
+              issuer:
+                group: "cert-manager.io"
+                kind: "ClusterIssuer"
+                name: "letsencrypt"
+            ingress:
+              enabled: true
+              ingressClassName: "traefik"
+              tls: true
+
     server: https://kubernetes.default.svc
     namespace: argocd
   syncPolicy:
