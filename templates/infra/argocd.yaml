@@ -27,6 +27,10 @@ spec:
           configs:
             cm:
               exec.enabled: true
+          redis:
+            image:
+              repository: redis
+              tag: 7.4-alpine
           server:
             autoscaling:
               enabled: true
