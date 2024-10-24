@@ -40,7 +40,6 @@ spec:
               enabled: true
               ingressClassName: "traefik"
               tls: true
-
     server: https://kubernetes.default.svc
     namespace: argocd
   syncPolicy:
