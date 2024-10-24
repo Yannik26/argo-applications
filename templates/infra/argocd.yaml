@@ -18,7 +18,7 @@ spec:
       helm:
         values: |
           global:
-            domain: ardocd.yannikmueller.eu
+            domain: "argocd.yannikmueller.eu"
             deploymentStrategy:
               type: RollingUpdate
               rollingUpdate:
@@ -40,6 +40,7 @@ spec:
               enabled: true
               ingressClassName: "traefik"
               tls: true
+  destination:
     server: https://kubernetes.default.svc
     namespace: argocd
   syncPolicy:
