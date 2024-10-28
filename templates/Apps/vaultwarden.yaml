@@ -1,6 +1,8 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
+  annotations:
+    argocd-image-updater.argoproj.io/image-list: vaultwarden/server:~1.32
   name: vaultwarden
   namespace: argocd
 spec:
@@ -17,8 +19,8 @@ spec:
       targetRevision: 0.29.2 # Replace with the cert-manager version you'd like to install or upgrade to
       helm:
         values: |
-          image:
-            tag: "1.32.2"
+          # image:
+          #   tag: "1.32.2"
           adminToken:
             existingSecret: "vaultwarden-admin-token"
             existingSecretKey: "admin-token"
