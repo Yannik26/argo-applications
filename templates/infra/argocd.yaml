@@ -28,7 +28,7 @@ spec:
             cm:
               exec.enabled: true
             params:
-              server.insecure: false
+              server.insecure: true
           redis:
             image:
               repository: redis
