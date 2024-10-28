@@ -2,13 +2,13 @@ apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   name: keycloak
-  namespace: keycloak
+  namespace: argocd
 spec:
   project: default
   sources:
-    # - repoURL: https://github.com/Yannik26/argo-secrets.git
-    #   path: infra/argocd
-    #   targetRevision: HEAD
+    - repoURL: https://github.com/Yannik26/argo-secrets.git
+      path: auth/keycloak
+      targetRevision: HEAD
     # - repoURL: https://github.com/Yannik26/argo-infrastructure.git
     #   path: infra/argocd
     #   targetRevision: HEAD
