@@ -13,7 +13,7 @@ spec:
     #   path: infra/argocd
     #   targetRevision: HEAD
     - chart: keycloak
-      repoURL: oci://registry-1.docker.io/bitnamicharts/keycloak
+      repoURL: registry-1.docker.io/bitnamicharts
       targetRevision: 26.0.2 # Replace with the Longhorn version you'd like to install or upgrade to
       helm:
         values: |
