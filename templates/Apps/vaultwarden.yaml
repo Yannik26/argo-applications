@@ -2,8 +2,8 @@ apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   annotations:
-    argocd-image-updater.argoproj.io/image-list: vaultwarden-server=vaultwarden/server:latest
-    argocd-image-updater.argoproj.io/vaultwarden-server.update-strategy: digest
+    argocd-image-updater.argoproj.io/image-list: fooalias=vaultwarden/server:latest
+    argocd-image-updater.argoproj.io/fooalias.update-strategy: digest
   name: vaultwarden
   namespace: argocd
 spec:
