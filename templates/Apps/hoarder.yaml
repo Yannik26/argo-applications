@@ -1,0 +1,23 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: hoarder
+  namespace: argocd
+spec:
+  project: default
+  sources:
+    - repoURL: https://github.com/Yannik26/argo-secrets.git
+      path: apps/hoarder/
+      targetRevision: HEAD
+    - repoURL: https://github.com/Yannik26/argo-infrastructure.git
+      path: apps/hoarder/
+      targetRevision: HEAD
+
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: hoarder
+  syncPolicy:
+    automated:
+      prune: true
+    syncOptions:
+      - CreateNamespace=true
