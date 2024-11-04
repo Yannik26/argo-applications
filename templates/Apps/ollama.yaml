@@ -1,0 +1,23 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: ollama
+  namespace: argocd
+spec:
+  project: default
+  sources:
+    # - repoURL: https://github.com/Yannik26/argo-secrets.git
+    #   path: apps/mealie/
+    #   targetRevision: HEAD
+    - repoURL: https://github.com/Yannik26/argo-infrastructure.git
+      path: apps/ollama/
+      targetRevision: HEAD
+
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: ollama
+  syncPolicy:
+    automated:
+      prune: true
+    syncOptions:
+      - CreateNamespace=true
