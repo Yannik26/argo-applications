@@ -1,0 +1,19 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: argocd
+  namespace: argocd
+spec:
+  project: default
+  sources:
+    - repoURL: https://github.com/Yannik26/argo-infrastructure.git
+      path: infra/system-upgrade
+      targetRevision: HEAD
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: system-upgrade
+  syncPolicy:
+    automated:
+      prune: true
+    syncOptions:
+      - CreateNamespace=true
