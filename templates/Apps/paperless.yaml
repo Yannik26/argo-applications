@@ -29,6 +29,7 @@ spec:
       repoURL: https://apache.jfrog.io/artifactory/tika
       targetRevision: 3.0.0-full # Replace with the tika version you'd like to install or upgrade to
       helm:
+        releaseName: tika
         values: |
           service:
             type: ClusterIP
