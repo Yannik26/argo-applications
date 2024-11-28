@@ -1,0 +1,28 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: cnpg
+  namespace: argocd
+spec:
+  project: default
+  sources:
+    # - repoURL: https://github.com/Yannik26/argo-secrets.git
+    #   path: infra/argocd
+    #   targetRevision: HEAD
+    # - repoURL: https://github.com/Yannik26/argo-infrastructure.git
+    #   path: infra/argocd
+    #   targetRevision: HEAD
+    - chart: cnpg
+      repoURL: https://cloudnative-pg.github.io/charts
+      targetRevision: 0.22.1 # Replace with the cnpg version you'd like to install or upgrade to
+      # helm:
+      #   values: |
+      #     global:
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: cnpg-system
+  syncPolicy:
+    automated:
+      prune: true
+    syncOptions:
+      - CreateNamespace=true
