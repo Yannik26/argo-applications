@@ -15,9 +15,10 @@ spec:
     - chart: cloudnative-pg
       repoURL: https://cloudnative-pg.github.io/charts
       targetRevision: 0.22.1 # Replace with the cnpg version you'd like to install or upgrade to
-      # helm:
-      #   values: |
-      #     global:
+      helm:
+        values: |
+          image: 
+            repository: ghcr.io/cloudnative-pg/cloudnative-pg
   destination:
     server: https://kubernetes.default.svc
     namespace: cnpg-system
