@@ -25,6 +25,14 @@ spec:
     - repoURL: https://github.com/Yannik26/argo-infrastructure.git
       path: apps/paperless/
       targetRevision: HEAD
+    - chart: tika
+      repoURL: https://apache.jfrog.io/artifactory/tika
+      targetRevision: 3.0.0-full # Replace with the tika version you'd like to install or upgrade to
+      helm:
+        values: |
+          service:
+            type: ClusterIP
+            port: 9998
   destination:
     server: https://kubernetes.default.svc
     namespace: paperless
