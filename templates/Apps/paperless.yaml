@@ -12,7 +12,7 @@ metadata:
     argocd-image-updater.argoproj.io/paperless.update-strategy: digest
     argocd-image-updater.argoproj.io/paperless.force-update: "true"
 
-        argocd-image-updater.argoproj.io/redis.update-strategy: digest
+    argocd-image-updater.argoproj.io/redis.update-strategy: digest
     argocd-image-updater.argoproj.io/redis.force-update: "true"
   name: paperless
   namespace: argocd
