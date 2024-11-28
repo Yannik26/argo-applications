@@ -1,0 +1,35 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  annotations:
+    argocd-image-updater.argoproj.io/image-list: gotenberg=gotenberg/gotenberg:8, tika=docker.io/apache/tika:latest, paperless=ghcr.io/paperless-ngx/paperless-ngx:latest, redis=docker.io/redis/redis:7-alpine
+    argocd-image-updater.argoproj.io/gotenberg.update-strategy: digest
+    argocd-image-updater.argoproj.io/gotenberg.force-update: "true"
+
+    argocd-image-updater.argoproj.io/tika.update-strategy: digest
+    argocd-image-updater.argoproj.io/tika.force-update: "true"
+
+    argocd-image-updater.argoproj.io/paperless.update-strategy: digest
+    argocd-image-updater.argoproj.io/paperless.force-update: "true"
+
+        argocd-image-updater.argoproj.io/redis.update-strategy: digest
+    argocd-image-updater.argoproj.io/redis.force-update: "true"
+  name: paperless
+  namespace: argocd
+spec:
+  project: default
+  sources:
+    - repoURL: https://github.com/Yannik26/argo-secrets.git
+      path: apps/paperless/
+      targetRevision: HEAD
+    - repoURL: https://github.com/Yannik26/argo-infrastructure.git
+      path: apps/paperless/
+      targetRevision: HEAD
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: paperless
+  syncPolicy:
+    automated:
+      prune: true
+    syncOptions:
+      - CreateNamespace=true
