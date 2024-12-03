@@ -42,14 +42,14 @@ spec:
             hostname: keycloak.yannikmueller.eu
             tls: true
           postgresql:
-            enabled: false
-          externalDatabase:
-            host: "keycloak-database-rw"
-            port: 5432
-            database: "postgres"
-            existingSecret: "keycloak-db-secret"
-            existingSecretUserKey: "username"
-            existingSecretPasswordKey: "password"
+            enabled: true
+          # externalDatabase:
+          #   host: "keycloak-database-rw"
+          #   port: 5432
+          #   database: "postgres"
+          #   existingSecret: "keycloak-db-secret"
+          #   existingSecretUserKey: "username"
+          #   existingSecretPasswordKey: "password"
           logging:
             level: INFO
   destination:
