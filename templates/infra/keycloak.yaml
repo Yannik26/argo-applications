@@ -48,7 +48,7 @@ spec:
             port: 5432
             database: "keycloak"
             existingSecret: "keycloak-db-secret"
-            existingSecretUserKey: "user"
+            existingSecretUserKey: "username"
             existingSecretPasswordKey: "password"
           logging:
             level: INFO
