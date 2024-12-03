@@ -46,9 +46,9 @@ spec:
           externalDatabase:
             host: ""
             port: 5432
+            database: "keycloak"
             existingSecret: "keycloak-db-secret"
-            existingSecretUserKey: "user"
-            existingSecretDatabaseKey: "database"
+            existingSecretUserKey: "username"
             existingSecretPasswordKey: "password"
 
   destination:
