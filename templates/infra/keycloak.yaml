@@ -50,6 +50,8 @@ spec:
             existingSecret: "keycloak-db-secret"
             existingSecretUserKey: "username"
             existingSecretPasswordKey: "password"
+          logging:
+            level: ALL
 
   destination:
     server: https://kubernetes.default.svc
