@@ -14,7 +14,7 @@ spec:
       targetRevision: HEAD
     - chart: keycloak
       repoURL: registry-1.docker.io/bitnamicharts
-      targetRevision: 24.0.2 # Replace with the Longhorn version you'd like to install or upgrade to
+      targetRevision: 24.2.2 # Replace with the Keycloak version you'd like to install or upgrade to
       helm:
         values: |
           global:
