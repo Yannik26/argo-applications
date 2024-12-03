@@ -35,7 +35,7 @@ spec:
             hostname: sso.yannikmueller.eu
             tls: true
           adminIngress:
-            enabled: true
+            enabled: false
             annotations:
               cert-manager.io/cluster-issuer: letsencrypt-staging
             ingressClassName: "traefik"
