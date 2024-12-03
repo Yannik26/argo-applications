@@ -44,10 +44,10 @@ spec:
           postgresql:
             enabled: false
           externalDatabase:
-            host: "keycloak-database-rw"
+            host: "pool-keycloak-database-rw"
             port: 5432
             database: "keycloak"
-            existingSecret: "keycloak-db-credentials"
+            existingSecret: "keycloak-db-secret"
             existingSecretUserKey: "user"
             existingSecretPasswordKey: "password"
           logging:
