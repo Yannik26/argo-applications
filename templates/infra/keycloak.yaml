@@ -33,6 +33,7 @@ spec:
               cert-manager.io/cluster-issuer: letsencrypt-staging
             ingressClassName: "traefik"
             hostname: sso.yannikmueller.eu
+            hostnameStrict: true
             tls: true
           adminIngress:
             enabled: false
