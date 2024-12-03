@@ -9,9 +9,9 @@ spec:
     - repoURL: https://github.com/Yannik26/argo-secrets.git
       path: auth/keycloak
       targetRevision: HEAD
-    # - repoURL: https://github.com/Yannik26/argo-infrastructure.git
-    #   path: infra/argocd
-    #   targetRevision: HEAD
+    - repoURL: https://github.com/Yannik26/argo-infrastructure.git
+      path: infra/keycloak
+      targetRevision: HEAD
     - chart: keycloak
       repoURL: registry-1.docker.io/bitnamicharts
       targetRevision: 24.0.2 # Replace with the Longhorn version you'd like to install or upgrade to
