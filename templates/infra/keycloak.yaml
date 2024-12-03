@@ -52,7 +52,6 @@ spec:
             existingSecretPasswordKey: "password"
           logging:
             level: ALL
-
   destination:
     server: https://kubernetes.default.svc
     namespace: keycloak
