@@ -44,7 +44,7 @@ spec:
           postgresql:
             enabled: false
           externalDatabase:
-            host: ""
+            host: "pooler-keycloak-database-rw"
             port: 5432
             database: "keycloak"
             existingSecret: "keycloak-db-secret"
