@@ -30,15 +30,15 @@ spec:
           ingress:
             enabled: true
             annotations:
-              cert-manager.io/cluster-issuer: letsencrypt-staging
+              cert-manager.io/cluster-issuer: letsencrypt
             ingressClassName: "traefik"
             hostname: sso.yannikmueller.eu
             hostnameStrict: true
             tls: true
           adminIngress:
-            enabled: false
+            enabled: true
             annotations:
-              cert-manager.io/cluster-issuer: letsencrypt-staging
+              cert-manager.io/cluster-issuer: letsencrypt
             ingressClassName: "traefik"
             hostname: keycloak.yannikmueller.eu
             tls: true
