@@ -16,7 +16,7 @@ spec:
       repoURL: https://grafana.github.io/helm-charts
       targetRevision: 8.6.4 # Replace with the Prometheus version you'd like to install or upgrade to
       helm:
-        releaseName: prometheus
+        releaseName: grafana
         values: |
           ingress:
             enabled: true
