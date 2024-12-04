@@ -32,6 +32,9 @@ spec:
             type: pvc
             enabled: true
             storageClassName: longhorn
+          grafana.ini:
+            server:
+              root_url: https://grafana.yannikmueller.eu
     - chart: prometheus
       repoURL: https://prometheus-community.github.io/helm-charts
       targetRevision: 26.0.0 # Replace with the Prometheus version you'd like to install or upgrade to
