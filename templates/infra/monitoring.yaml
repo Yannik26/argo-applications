@@ -25,11 +25,11 @@ spec:
               annotations:
                 cert-manager.io/cluster-issuer: letsencrypt
               hosts:
-                - prometheus.yannikmueller.eu
+              - prometheus.yannikmueller.eu
               tls:
-                - secretName: prometheus.yannikmueller.eu-tls
-                  hosts:
-                    prometheus.yannikmueller.eu
+              - secretName: prometheus.yannikmueller.eu-tls
+                hosts:
+                  - prometheus.yannikmueller.eu
             persistentVolume:
               enabled: true
               size: 16Gi
