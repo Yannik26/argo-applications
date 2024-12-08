@@ -7,19 +7,29 @@ spec:
   project: default
   sources:
     # - repoURL: https://github.com/Yannik26/argo-secrets.git
-    #   path: apps/vaultwarden/
+    #   path: apps/sds-status
     #   targetRevision: HEAD
     # - repoURL: https://github.com/Yannik26/argo-infrastructure.git
-    #   path: apps/vaultwarden/
+    #   path: apps/sds-status
     #   targetRevision: HEAD
     - chart: nats
-      repoURL: https://nats-io.github.io/k8s/helm/charts/
-      targetRevision: 1.2.6 # Replace with the nats version you'd like to install or upgrade to
+      repoURL: registry-1.docker.io/bitnamicharts
+      targetRevision: 8.4.10 # Replace with the Keycloak version you'd like to install or upgrade to
       helm:
-      releaseName: nats
-        # values: |
-        #   # image:
-
+        releaseName: nats
+        values: |
+          auth:
+            enabled: false
+          ingress:
+            enabled: true
+            hostname: nats.sds-status.yannikmueller.eu
+            ingressClassName: traefik
+            annotations:
+             cert-manager.io/cluster-issuer: letsencrypt
+            tls: true
+          persistence:
+            enabled: true
+            storageClass: longhorn
 
   destination:
     server: https://kubernetes.default.svc
