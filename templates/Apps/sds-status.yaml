@@ -20,6 +20,9 @@ spec:
         values: |
           auth:
             enabled: false
+          cluster:
+            auth:
+              enabled: false
           ingress:
             enabled: true
             hostname: nats.sds-status.yannikmueller.eu
