@@ -81,11 +81,11 @@ spec:
               size: "20Gi"
               class: "longhorn"
               path: "/data"
-          storage:
-            enabled: true
-            size: "15Gi"
-            class: "longhorn"
-            dataDir: "/data"
+          # storage:
+          #   enabled: true
+          #   size: "15Gi"
+          #   class: "longhorn"
+          #   dataDir: "/data"
           timezone: "Europe/Berlin"
 
   destination:
