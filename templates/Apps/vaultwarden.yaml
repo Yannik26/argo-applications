@@ -75,11 +75,12 @@ spec:
             rollingUpdate:
               maxSurge: 1
               maxUnavailable: 0
-          data:
-            name: "vaultwarden-data"
-            size: "20Gi"
-            class: "longhorn"
-            path: "/data"
+          storage:
+            data:
+              name: "vaultwarden-data"
+              size: "20Gi"
+              class: "longhorn"
+              path: "/data"
           storage:
             enabled: true
             size: "15Gi"
