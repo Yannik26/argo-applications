@@ -27,7 +27,14 @@ spec:
             annotations:
               cert-manager.io/cluster-issuer: letsencrypt
             hosts:
-              - git.yannikmueller.eu
+              - host: git.yannikmueller.eu
+                paths:
+                  - path: /
+                    pathType: Prefix
+            tls:
+              - secretname: gitea.yannikmueller.eu-tls
+                hosts:
+                  - git.yannikmueller.eu
           persistence:
             enabled: true
             create: true
