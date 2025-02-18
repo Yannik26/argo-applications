@@ -31,6 +31,10 @@ spec:
           service:
             type: ClusterIP
             port: 9998
+          resources:
+            requests:
+              cpu: "100m"
+              memory: "500Mi"
   destination:
     server: https://kubernetes.default.svc
     namespace: paperless
