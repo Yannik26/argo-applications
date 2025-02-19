@@ -15,8 +15,8 @@ spec:
       helm:
         values: |
           ports:
-            ssh:
-              port: 22
+            gitea-ssh:
+              port: 55522
               expose:
                 default: true
           ingressRoute:
