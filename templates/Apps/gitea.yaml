@@ -10,9 +10,9 @@ metadata:
 spec:
   project: default
   sources:
-    # - repoURL: https://github.com/Yannik26/argo-secrets.git
-    #   path: apps/gitea/
-    #   targetRevision: HEAD
+    - repoURL: https://github.com/Yannik26/argo-secrets.git
+      path: apps/gitea/
+      targetRevision: HEAD
     # - repoURL: https://github.com/Yannik26/argo-infrastructure.git
     #   path: apps/gitea/
     #   targetRevision: HEAD
