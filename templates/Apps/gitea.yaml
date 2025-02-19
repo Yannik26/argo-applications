@@ -32,7 +32,7 @@ spec:
                   - path: /
                     pathType: Prefix
             tls:
-              - secretname: gitea.yannikmueller.eu-tls
+              - secretName: gitea.yannikmueller.eu-tls
                 hosts:
                   - git.yannikmueller.eu
           persistence:
