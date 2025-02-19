@@ -10,12 +10,12 @@ metadata:
 spec:
   project: default
   sources:
-    - repoURL: https://github.com/Yannik26/argo-secrets.git
-      path: apps/gitea/
-      targetRevision: HEAD
-    # - repoURL: https://github.com/Yannik26/argo-infrastructure.git
+    # - repoURL: https://github.com/Yannik26/argo-secrets.git
     #   path: apps/gitea/
     #   targetRevision: HEAD
+    - repoURL: https://github.com/Yannik26/argo-infrastructure.git
+      path: apps/gitea/
+      targetRevision: HEAD
     - chart: gitea
       repoURL: https://dl.gitea.com/charts/
       targetRevision: 10.6.0 # Replace with the gitea version you'd like to install or upgrade to
