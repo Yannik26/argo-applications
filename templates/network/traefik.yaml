@@ -17,7 +17,8 @@ spec:
           ports:
             ssh:
               port: 22
-              expose: true
+              expose:
+                default: true
           ingressRoute:
             dashboard:
               enabled: true
