@@ -29,9 +29,9 @@ spec:
                 paths:
                   - path: /
             tls:
-              secretName: zot.yannikmueller.eu-tls
-              hosts:
-                - zot.yannikmueller.eu
+              - secretName: zot.yannikmueller.eu-tls
+                hosts:
+                  - zot.yannikmueller.eu
           httpGet:
             scheme: HTTPS
           persistence: true
