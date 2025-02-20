@@ -33,7 +33,7 @@ spec:
             externalURL: https://harbor.yannikmueller.eu
   destination:
     server: https://kubernetes.default.svc
-    namespace: cnpg-system
+    namespace: harbor
   syncPolicy:
     automated:
       prune: true
