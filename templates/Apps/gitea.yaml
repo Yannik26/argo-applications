@@ -1,80 +1,80 @@
-apiVersion: argoproj.io/v1alpha1
-kind: Application
-metadata:
-  # annotations:
-  #   argocd-image-updater.argoproj.io/image-list: vaultwarden-server=vaultwarden/server:latest
-  #   argocd-image-updater.argoproj.io/vaultwarden-server.update-strategy: digest
-  #   argocd-image-updater.argoproj.io/vaultwarden-server.force-update: "true"
-  name: gitea
-  namespace: argocd
-spec:
-  project: default
-  sources:
-    - repoURL: https://github.com/Yannik26/argo-secrets.git
-      path: apps/gitea/
-      targetRevision: HEAD
-    - repoURL: https://github.com/Yannik26/argo-infrastructure.git
-      path: apps/gitea/
-      targetRevision: HEAD
-    - chart: gitea
-      repoURL: https://dl.gitea.com/charts/
-      targetRevision: 10.6.0 # Replace with the gitea version you'd like to install or upgrade to
-      helm:
-        values: |
-          ingress:
-            enabled: true
-            classname: "traefik"
-            annotations:
-              cert-manager.io/cluster-issuer: letsencrypt
-            hosts:
-              - host: git.yannikmueller.eu
-                paths:
-                  - path: /
-                    pathType: Prefix
-            tls:
-              - secretName: gitea.yannikmueller.eu-tls
-                hosts:
-                  - git.yannikmueller.eu
-          persistence:
-            enabled: true
-            create: true
-            mount: true
-            claimName: gitea-shared-storage
-            size: 25Gi
-            storageClass: longhorn
-          actions:
-            enabled: true
-            provisioning:
-              enabled: true
-          postgresql:
-            enabled: false
-          postgresql-ha:
-            enabled: false
-          gitea:
-            config:
-              database:
-                DB_TYPE: postgres
-                NAME: gitea
-            admin:
-              passwordMode: initialOnlyRequireReset
-            additionalConfigFromEnvs:
-              - name: GITEA__DATABASE__HOST
-                value: gitea-database-rw
-              - name: GITEA__DATABASE__USER
-                valueFrom:
-                  secretKeyRef:
-                    name: gitea-db-config
-                    key: username
-              - name: GITEA__DATABASE__PASSWD
-                valueFrom:
-                  secretKeyRef:
-                    name: gitea-db-config
-                    key: password
-  destination:
-    server: https://kubernetes.default.svc
-    namespace: gitea
-  syncPolicy:
-    automated:
-      prune: true
-    syncOptions:
-      - CreateNamespace=true
+# apiVersion: argoproj.io/v1alpha1
+# kind: Application
+# metadata:
+#   # annotations:
+#   #   argocd-image-updater.argoproj.io/image-list: vaultwarden-server=vaultwarden/server:latest
+#   #   argocd-image-updater.argoproj.io/vaultwarden-server.update-strategy: digest
+#   #   argocd-image-updater.argoproj.io/vaultwarden-server.force-update: "true"
+#   name: gitea
+#   namespace: argocd
+# spec:
+#   project: default
+#   sources:
+#     - repoURL: https://github.com/Yannik26/argo-secrets.git
+#       path: apps/gitea/
+#       targetRevision: HEAD
+#     - repoURL: https://github.com/Yannik26/argo-infrastructure.git
+#       path: apps/gitea/
+#       targetRevision: HEAD
+#     - chart: gitea
+#       repoURL: https://dl.gitea.com/charts/
+#       targetRevision: 10.6.0 # Replace with the gitea version you'd like to install or upgrade to
+#       helm:
+#         values: |
+#           ingress:
+#             enabled: true
+#             classname: "traefik"
+#             annotations:
+#               cert-manager.io/cluster-issuer: letsencrypt
+#             hosts:
+#               - host: git.yannikmueller.eu
+#                 paths:
+#                   - path: /
+#                     pathType: Prefix
+#             tls:
+#               - secretName: gitea.yannikmueller.eu-tls
+#                 hosts:
+#                   - git.yannikmueller.eu
+#           persistence:
+#             enabled: true
+#             create: true
+#             mount: true
+#             claimName: gitea-shared-storage
+#             size: 25Gi
+#             storageClass: longhorn
+#           actions:
+#             enabled: true
+#             provisioning:
+#               enabled: true
+#           postgresql:
+#             enabled: false
+#           postgresql-ha:
+#             enabled: false
+#           gitea:
+#             config:
+#               database:
+#                 DB_TYPE: postgres
+#                 NAME: gitea
+#             admin:
+#               passwordMode: initialOnlyRequireReset
+#             additionalConfigFromEnvs:
+#               - name: GITEA__DATABASE__HOST
+#                 value: gitea-database-rw
+#               - name: GITEA__DATABASE__USER
+#                 valueFrom:
+#                   secretKeyRef:
+#                     name: gitea-db-config
+#                     key: username
+#               - name: GITEA__DATABASE__PASSWD
+#                 valueFrom:
+#                   secretKeyRef:
+#                     name: gitea-db-config
+#                     key: password
+#   destination:
+#     server: https://kubernetes.default.svc
+#     namespace: gitea
+#   syncPolicy:
+#     automated:
+#       prune: true
+#     syncOptions:
+#       - CreateNamespace=true
