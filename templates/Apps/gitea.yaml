@@ -58,7 +58,7 @@ spec:
             admin:
               passwordMode: initialOnlyRequireReset
             additionalConfigFromEnvs:
-              - name: GITEA __DATABASE__HOST
+              - name: GITEA__DATABASE__HOST
                 value: pooler-gitea-database-rw:5432
               - name: GITEA__DATABASE__USER
                 valueFrom:
