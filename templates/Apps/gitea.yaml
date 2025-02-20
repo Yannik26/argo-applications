@@ -46,9 +46,30 @@ spec:
             enabled: true
             provisioning:
               enabled: true
+          postgresql:
+            enabled: false
+          postgresql-ha:
+            enabled: false
           gitea:
+            config:
+              database:
+                DB_TYPE: postgres
+                NAME: gitea
             admin:
               passwordMode: initialOnlyRequireReset
+            additionalConfigFromEnvs:
+              - name: GITEA __DATABASE__HOST
+                value: pooler-gitea-database-rw:5432
+              - name: GITEA__DATABASE__USER
+                valueFrom:
+                  secretKeyRef:
+                    name: gitea-db-secret
+                    key: username
+              - name: GITEA__DATABASE__PASSWD
+                valueFrom:
+                  secretKeyRef:
+                    name: gitea-db-secret
+                    key: password
   destination:
     server: https://kubernetes.default.svc
     namespace: gitea
