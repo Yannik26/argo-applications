@@ -63,12 +63,12 @@ spec:
               - name: GITEA__DATABASE__USER
                 valueFrom:
                   secretKeyRef:
-                    name: gitea-db-secret
+                    name: gitea-db-config
                     key: username
               - name: GITEA__DATABASE__PASSWD
                 valueFrom:
                   secretKeyRef:
-                    name: gitea-db-secret
+                    name: gitea-db-config
                     key: password
   destination:
     server: https://kubernetes.default.svc
