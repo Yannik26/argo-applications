@@ -33,7 +33,7 @@ spec:
                 hosts:
                   - zot.yannikmueller.eu
           httpGet:
-            scheme: HTTPS
+            scheme: HTTP
           persistence: true
           pvc:
             create: true
