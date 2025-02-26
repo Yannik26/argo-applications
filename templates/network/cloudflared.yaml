@@ -1,6 +1,10 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
+  annotations:
+    argocd-image-updater.argoproj.io/image-list: cloudflared=cloudflare/cloudflared:latest
+    argocd-image-updater.argoproj.io/cloudflared.update-strategy: digest
+    argocd-image-updater.argoproj.io/cloudflared.force-update: "true"
   name: cloudflared
   namespace: argocd
 spec:
