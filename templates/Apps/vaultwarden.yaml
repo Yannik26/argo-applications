@@ -1,10 +1,10 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  annotations:
-    argocd-image-updater.argoproj.io/image-list: vaultwarden-server=vaultwarden/server:latest
-    argocd-image-updater.argoproj.io/vaultwarden-server.update-strategy: digest
-    argocd-image-updater.argoproj.io/vaultwarden-server.force-update: "true"
+  # annotations:
+  #   argocd-image-updater.argoproj.io/image-list: vaultwarden-server=vaultwarden/server:latest
+  #   argocd-image-updater.argoproj.io/vaultwarden-server.update-strategy: digest
+  #   argocd-image-updater.argoproj.io/vaultwarden-server.force-update: "true"
   name: vaultwarden
   namespace: argocd
 spec:
@@ -87,7 +87,14 @@ spec:
           #   class: "longhorn"
           #   dataDir: "/data"
           timezone: "Europe/Berlin"
-
+          keel:
+            # keel policy (all/major/minor/patch/force)
+            policy: force
+            pollSchedule: "@daily"
+            # images to track and update
+            images:
+              - repository: image.repository
+                tag: image.tag
   destination:
     server: https://kubernetes.default.svc
     namespace: vaultwarden
