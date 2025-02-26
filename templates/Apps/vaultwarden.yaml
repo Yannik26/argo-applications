@@ -21,8 +21,8 @@ spec:
       targetRevision: 0.31.6 # Replace with the cert-manager version you'd like to install or upgrade to
       helm:
         values: |
-          # image:
-          #   tag: "1.32.2"
+          image:
+            tag: latest-alpine
           adminToken:
             existingSecret: "vaultwarden-admin-token"
             existingSecretKey: "admin-token"
