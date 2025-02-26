@@ -1,0 +1,50 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: keel
+  namespace: argocd
+spec:
+  project: default
+  sources:
+    # - repoURL: https://github.com/Yannik26/argo-secrets.git
+    #   path: infra/keel
+    #   targetRevision: HEAD
+    # - repoURL: https://github.com/Yannik26/argo-infrastructure.git
+    #   path: infra/keel
+    #   targetRevision: HEAD
+    - chart: keel
+      repoURL: https://charts.keel.sh
+      targetRevision: 1.0.5 # Replace with the keel version you'd like to install or upgrade to
+      helm:
+        values: |
+          helmProvider:
+            enabled: true
+            version: "v3
+          keel:
+            policy: patch
+            trigger: poll
+            pollSchedule: "@daily"
+            images:
+              - repository: image.repository
+                tag: image.tag
+          ingress:
+            enabled: true
+            annotations:
+              cert-manager.io/cluster-issuer: letsencrypt
+            hosts:
+              - host: keel.yannikmueller.eu
+                paths:
+                  - /
+            tls:
+              - secretName: keel.yannikmueller.eu-tls
+                hosts:
+                  - keel.yannikmueller.eu
+
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: kube-system
+  syncPolicy:
+    automated:
+      prune: true
+    syncOptions:
+      - CreateNamespace=true
