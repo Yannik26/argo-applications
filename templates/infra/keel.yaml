@@ -19,7 +19,7 @@ spec:
         values: |
           helmProvider:
             enabled: true
-            version: "v3
+            version: "v3"
           keel:
             policy: patch
             trigger: poll
@@ -39,7 +39,6 @@ spec:
               - secretName: keel.yannikmueller.eu-tls
                 hosts:
                   - keel.yannikmueller.eu
-
   destination:
     server: https://kubernetes.default.svc
     namespace: kube-system
