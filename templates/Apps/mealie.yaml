@@ -1,10 +1,6 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  annotations:
-    argocd-image-updater.argoproj.io/image-list: mealie=ghcr.io/mealie-recipes/mealie:latest
-    argocd-image-updater.argoproj.io/mealie.update-strategy: digest
-    argocd-image-updater.argoproj.io/mealie.force-update: "true"
   name: mealie
   namespace: argocd
 spec:

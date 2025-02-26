@@ -1,10 +1,6 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  annotations:
-    argocd-image-updater.argoproj.io/image-list: ollama=ollama/ollama:latest
-    argocd-image-updater.argoproj.io/ollama.update-strategy: digest
-    argocd-image-updater.argoproj.io/ollama.force-update: "true"
   name: ollama
   namespace: argocd
 spec:

@@ -1,10 +1,6 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  annotations:
-    argocd-image-updater.argoproj.io/image-list: spoolman=ghcr.io/donkie/spoolman:latest
-    argocd-image-updater.argoproj.io/spoolman.update-strategy: digest
-    argocd-image-updater.argoproj.io/spoolman.force-update: "true"
   name: spoolman
   namespace: argocd
 spec:
