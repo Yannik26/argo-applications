@@ -53,6 +53,13 @@ spec:
             existingSecretPasswordKey: "password"
           logging:
             level: INFO
+          keel:
+            policy: "regexp:^\d\d\.\d\.\d-debian-\d\d-r\d$"
+            images:
+              - repository: image.repository
+                tag: image.tag
+            trigger: poll
+            pollSchedule: "@daily"
   destination:
     server: https://kubernetes.default.svc
     namespace: keycloak
