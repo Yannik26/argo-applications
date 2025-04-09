@@ -1,16 +1,16 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: hoarder
+  name: karakeep
   namespace: argocd
 spec:
   project: default
   sources:
     - repoURL: https://github.com/Yannik26/argo-secrets.git
-      path: apps/hoarder/
+      path: apps/karakeep/
       targetRevision: HEAD
     - repoURL: https://github.com/Yannik26/argo-infrastructure.git
-      path: apps/hoarder/
+      path: apps/karakeep/
       targetRevision: HEAD
 
   destination:
