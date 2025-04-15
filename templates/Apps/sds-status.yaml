@@ -6,35 +6,13 @@ metadata:
 spec:
   project: default
   sources:
-    # - repoURL: https://github.com/Yannik26/argo-secrets.git
-    #   path: apps/sds-status
-    #   targetRevision: HEAD
-    # - repoURL: https://github.com/Yannik26/argo-infrastructure.git
-    #   path: apps/sds-status
-    #   targetRevision: HEAD
-    - chart: nats
-      repoURL: registry-1.docker.io/bitnamicharts
-      targetRevision: 8.4.10 # Replace with the Keycloak version you'd like to install or upgrade to
-      helm:
-        releaseName: nats
-        values: |
-          auth:
-            enabled: false
-          cluster:
-            auth:
-              enabled: false
-          service:
-            type: LoadBalancer
-          ingress:
-            enabled: true
-            hostname: nats.sds-status.yannikmueller.eu
-            ingressClassName: traefik
-            annotations:
-             cert-manager.io/cluster-issuer: letsencrypt
-            tls: true
-          persistence:
-            enabled: true
-            storageClass: longhorn
+    - repoURL: https://github.com/Yannik26/argo-secrets.git
+      path: apps/sds-status
+      targetRevision: HEAD
+    - repoURL: https://github.com/Yannik26/argo-infrastructure.git
+      path: apps/sds-status
+      targetRevision: HEAD
+
 
   destination:
     server: https://kubernetes.default.svc
