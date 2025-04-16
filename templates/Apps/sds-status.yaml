@@ -6,13 +6,12 @@ metadata:
 spec:
   project: default
   sources:
-    # - repoURL: https://github.com/Yannik26/argo-secrets.git
-    #   path: apps/sds-status
-    #   targetRevision: HEAD
+    - repoURL: https://github.com/Yannik26/argo-secrets.git
+      path: apps/sds-status
+      targetRevision: HEAD
     - repoURL: https://github.com/Yannik26/argo-infrastructure.git
       path: apps/sds-status
       targetRevision: HEAD
-
 
   destination:
     server: https://kubernetes.default.svc
