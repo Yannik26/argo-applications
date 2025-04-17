@@ -17,9 +17,9 @@ spec:
       targetRevision: 3.0.2
       helm:
         releaseName: sds-valkey
-        # values: |
-        #   ports:
-        #     gitea-ssh:
+        values: |
+          cluster:
+            nodes: 3
 
   destination:
     server: https://kubernetes.default.svc
