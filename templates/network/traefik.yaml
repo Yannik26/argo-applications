@@ -14,11 +14,6 @@ spec:
       targetRevision: 34.4.0
       helm:
         values: |
-          ports:
-            gitea-ssh:
-              port: 55522
-              expose:
-                default: true
           ingressRoute:
             dashboard:
               enabled: true
@@ -28,6 +23,9 @@ spec:
                 enabled: true
               ingressEndpoint:
                 publishedService: "traefik/traefik"
+          ports:
+            websecure:
+              asDefault: true
 
   syncPolicy:
     automated:
