@@ -12,6 +12,14 @@ spec:
     - repoURL: https://github.com/Yannik26/argo-infrastructure.git
       path: apps/sds-status
       targetRevision: HEAD
+    - chart: valkey
+      repoURL: registry-1.docker.io/bitnamicharts
+      targetRevision: 3.0.1
+      helm:
+        releaseName: sds-valkey
+        # values: |
+        #   ports:
+        #     gitea-ssh:
 
   destination:
     server: https://kubernetes.default.svc
