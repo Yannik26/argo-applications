@@ -24,8 +24,10 @@ spec:
               ingressEndpoint:
                 publishedService: "traefik/traefik"
           ports:
-            websecure:
-              asDefault: true
+            web:
+              redirections:
+                entryPoint:
+                  to: websecure
 
   syncPolicy:
     automated:
