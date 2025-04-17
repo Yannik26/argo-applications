@@ -28,6 +28,7 @@ spec:
               redirections:
                 entryPoint:
                   to: websecure
+                  scheme: https
 
   syncPolicy:
     automated:
