@@ -23,12 +23,12 @@ spec:
                 enabled: true
               ingressEndpoint:
                 publishedService: "traefik/traefik"
-          ports:
-            web:
-              redirections:
-                entryPoint:
-                  to: websecure
-                  scheme: https
+          # ports:
+          #   web:
+          #     redirections:
+          #       entryPoint:
+          #         to: websecure
+          #         scheme: https
 
   syncPolicy:
     automated:
