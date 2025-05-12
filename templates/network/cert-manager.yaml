@@ -14,7 +14,7 @@ spec:
       targetRevision: HEAD
     - chart: cert-manager
       repoURL: https://charts.jetstack.io
-      targetRevision: v1.17.1 # Replace with the cert-manager version you'd like to install or upgrade to
+      targetRevision: v1.17.2 # Replace with the cert-manager version you'd like to install or upgrade to
       helm:
         values: |
           crds:
