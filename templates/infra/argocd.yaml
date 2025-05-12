@@ -14,7 +14,7 @@ spec:
     #   targetRevision: HEAD
     - chart: argo-cd
       repoURL: https://argoproj.github.io/argo-helm
-      targetRevision: 7.9.1 # Replace with the Longhorn version you'd like to install or upgrade to
+      targetRevision: 8.0.0 # Replace with the Longhorn version you'd like to install or upgrade to
       helm:
         values: |
           global:
