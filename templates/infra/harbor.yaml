@@ -14,7 +14,7 @@ spec:
     #   targetRevision: HEAD
     - chart: harbor
       repoURL: https://helm.goharbor.io
-      targetRevision: 1.16.2 # Replace with the harbor version you'd like to install or upgrade to
+      targetRevision: 1.16.3 # Replace with the harbor version you'd like to install or upgrade to
       helm:
         values: |
           externalURL: https://harbor.yannikmueller.eu
