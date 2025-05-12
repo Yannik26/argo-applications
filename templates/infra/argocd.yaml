@@ -14,7 +14,7 @@ spec:
     #   targetRevision: HEAD
     - chart: argo-cd
       repoURL: https://argoproj.github.io/argo-helm
-      targetRevision: 7.8.5 # Replace with the Longhorn version you'd like to install or upgrade to
+      targetRevision: 7.9.1 # Replace with the Longhorn version you'd like to install or upgrade to
       helm:
         values: |
           global:
@@ -32,7 +32,7 @@ spec:
           redis:
             image:
               repository: redis
-              tag: 7.4-alpine
+              tag: alpine
           server:
             autoscaling:
               enabled: true
