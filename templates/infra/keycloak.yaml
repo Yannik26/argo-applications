@@ -54,7 +54,7 @@ spec:
           logging:
             level: INFO
           keel:
-            policy: "regexp:^\d\d\.\d\.\d-debian-\d\d-r\d$"
+            policy: 'regexp:^\d\d\.\d\.\d-debian-\d\d-r\d$'
             images:
               - repository: image.repository
                 tag: image.tag
