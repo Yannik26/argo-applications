@@ -23,7 +23,7 @@ spec:
         values: |
           # image:
           #   tag: latest-alpine
-          podAnnotations:
+          commonAnnotations:
             keel.sh/policy: minor
             keel.sh/trigger: poll
             keel.sh/pollSchedule: "@daily"
