@@ -14,9 +14,13 @@ spec:
       targetRevision: HEAD
     - chart: keycloak
       repoURL: registry-1.docker.io/bitnamicharts
-      targetRevision: 24.6.6 # Replace with the Keycloak version you'd like to install or upgrade to
+      targetRevision: 26.3.1 # Replace with the Keycloak version you'd like to install or upgrade to
       helm:
         values: |
+          statefulsetAnnotations:
+            keel.sh/policy: minor
+            keel.sh/trigger: poll
+            keel.sh/pollSchedule: "@daily"
           global:
             defaultStorageClass: "longhorn"
           auth:
