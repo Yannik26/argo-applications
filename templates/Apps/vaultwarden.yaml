@@ -23,6 +23,10 @@ spec:
         values: |
           # image:
           #   tag: latest-alpine
+          podAnnotations:
+            keel.sh/policy: minor
+            keel.sh/trigger: poll
+            keel.sh/pollSchedule: "@daily"
           adminToken:
             existingSecret: "vaultwarden-admin-token"
             existingSecretKey: "admin-token"
