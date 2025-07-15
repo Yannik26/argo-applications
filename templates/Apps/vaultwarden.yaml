@@ -21,8 +21,8 @@ spec:
       targetRevision: 0.32.1 # Replace with the cert-manager version you'd like to install or upgrade to
       helm:
         values: |
-          image:
-            tag: latest-alpine
+          # image:
+          #   tag: latest-alpine
           adminToken:
             existingSecret: "vaultwarden-admin-token"
             existingSecretKey: "admin-token"
@@ -89,9 +89,9 @@ spec:
           timezone: "Europe/Berlin"
           keel:
             # keel policy (all/major/minor/patch/force)
-            policy: force
+            policy: minor
             trigger: poll
-            pollSchedule: "@daily"
+            pollSchedule: "@every 1m"
             # images to track and update
             images:
               - repository: image.repository
