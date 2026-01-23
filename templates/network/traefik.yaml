@@ -25,8 +25,8 @@ spec:
             kubernetesIngress:
               publishedService:
                 enabled: true
-              ingressEndpoint:
-                publishedService: "traefik/traefik"
+              # ingressEndpoint:
+              #   publishedService: "traefik/traefik"
           # ports:
           #   web:
           #     redirections:
