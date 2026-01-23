@@ -14,10 +14,11 @@ spec:
       targetRevision: 39.0.0
       helm:
         values: |
-          annotations:
-            keel.sh/policy: minor
-            keel.sh/trigger: poll
-            keel.sh/pollSchedule: "@daily"
+          deployment:
+            annotations:
+              keel.sh/policy: minor
+              keel.sh/trigger: poll
+              keel.sh/pollSchedule: "@daily"
           ingressRoute:
             dashboard:
               enabled: true
