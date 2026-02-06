@@ -16,8 +16,8 @@ spec:
     - repoURL: https://github.com/Yannik26/argo-infrastructure.git
       path: apps/immich/
       targetRevision: HEAD
-    - path: .
-      repoURL: oci://ghcr.io/immich-app/immich-charts/immich
+    - chart: immich
+      repoURL: ghcr.io/immich-app/immich-charts
       targetRevision: 0.10.3 # Replace with the immich version you'd like to install or upgrade to
       helm:
         values: |
