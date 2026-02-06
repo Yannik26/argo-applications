@@ -1,0 +1,73 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  # annotations:
+  #   argocd-image-updater.argoproj.io/image-list: vaultwarden-server=vaultwarden/server:latest
+  #   argocd-image-updater.argoproj.io/vaultwarden-server.update-strategy: digest
+  #   argocd-image-updater.argoproj.io/vaultwarden-server.force-update: "true"
+  name: immich
+  namespace: argocd
+spec:
+  project: default
+  sources:
+    - repoURL: https://github.com/Yannik26/argo-secrets.git
+      path: apps/immich/
+      targetRevision: HEAD
+    - repoURL: https://github.com/Yannik26/argo-infrastructure.git
+      path: apps/immich/
+      targetRevision: HEAD
+    - chart: immich
+      repoURL: oci://ghcr.io/immich-app/immich-charts/immich
+      targetRevision: 0.10.3 # Replace with the immich version you'd like to install or upgrade to
+      helm:
+        values: |
+          defaultPodOptions:
+            annotations:
+              keel.sh/policy: minor
+              keel.sh/trigger: poll
+              keel.sh/pollSchedule: "@daily"
+          immich:
+            persistence:
+              library:
+                existingClaim: "immich-library"
+          valkey:
+            enabled: true 
+            persistence:
+              data:
+                enabled: true 
+                size: 1Gi 
+                type: persistentVolumeClaim
+                storageClass: longhorn
+          server:
+            ingress:
+              main:
+                enabled: true 
+                annotations:
+                  cert-manager.io/cluster-issuer: letsencrypt
+                  nginx.ingress.kubernetes.io/proxy-body-size: "0"
+                hosts:
+                  - host: photos.yannikmueller.eu 
+                    paths:
+                      - path: "/"
+                        service:
+                          identifier: main 
+                tls:
+                  - secret-name: photos.yannikmueller.eu-tls
+                    hosts:
+                      - photos.yannikmueller.eu
+          machine-learning:
+            enabled: true 
+            persistence:
+              cache:
+                enabled: true 
+                size: 10Gi 
+                type: persistentVolumeClaim 
+                storageClass: longhorn
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: immich
+  syncPolicy:
+    automated:
+      prune: true
+    syncOptions:
+      - CreateNamespace=true
