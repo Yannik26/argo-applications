@@ -29,7 +29,7 @@ spec:
           immich:
             persistence:
               library:
-                existingClaim: "immich-library"
+                existingClaim: "immich-pvc"
           valkey:
             enabled: true 
             persistence:
