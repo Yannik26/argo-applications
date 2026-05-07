@@ -18,7 +18,7 @@ spec:
       targetRevision: HEAD
     - chart: immich
       repoURL: ghcr.io/immich-app/immich-charts
-      targetRevision: 0.10.3 # Replace with the immich version you'd like to install or upgrade to
+      targetRevision: 0.11.1 # Replace with the immich version you'd like to install or upgrade to
       helm:
         values: |
           defaultPodOptions:
