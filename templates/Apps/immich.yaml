@@ -39,6 +39,20 @@ spec:
                 type: persistentVolumeClaim
                 storageClass: longhorn
           server:
+            contrllers:
+              main:
+                env:
+                  DB_USERNAME:
+                    valueFrom:
+                      secretKeyRef:
+                        name: postgres-user
+                        key: username
+                  DB_PASSWORD:
+                    valueFrom:
+                      secretKeyRef:
+                        name: postgres-user
+                        key: password
+                  DB_HOSTNAME: immich-postgres-cluster-rw
             ingress:
               main:
                 enabled: true 
