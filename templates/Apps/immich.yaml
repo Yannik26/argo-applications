@@ -39,7 +39,7 @@ spec:
                 type: persistentVolumeClaim
                 storageClass: longhorn
           server:
-            controllers:
+            containers:
               main:
                 env:
                   DB_USERNAME:
