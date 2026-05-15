@@ -68,7 +68,7 @@ spec:
                         service:
                           identifier: main 
                 tls:
-                  - secret-name: photos.yannikmueller.eu-tls
+                  - secretName: photos.yannikmueller.eu-tls
                     hosts:
                       - photos.yannikmueller.eu
           machine-learning:
