@@ -14,7 +14,7 @@ spec:
     #   targetRevision: HEAD
     - chart: keel
       repoURL: https://charts.keel.sh
-      targetRevision: 1.0.5 # Replace with the keel version you'd like to install or upgrade to
+      targetRevision: 1.2.2 # Replace with the keel version you'd like to install or upgrade to
       helm:
         values: |
           helmProvider:
