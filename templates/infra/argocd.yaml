@@ -35,7 +35,7 @@ spec:
               tag: alpine
           server:
             autoscaling:
-              enabled: true
+              enabled: false
             certificate:
               enabled: true
               issuer:
