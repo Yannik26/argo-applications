@@ -1,0 +1,25 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: falco-operator
+  namespace: argocd
+spec:
+  project: default
+  sources:
+    # - repoURL: https://github.com/Yannik26/argo-secrets.git
+    #   path: infra/argocd
+    #   targetRevision: HEAD
+    - repoURL: https://github.com/Yannik26/argo-infrastructure.git
+      path: infra/falco
+      targetRevision: HEAD
+    - chart: falco-operator
+      repoURL: https://falcosecurity.github.io/charts
+      targetRevision: 0.4.0-rc3 # Replace with the ArgoCD version you'd like to install or upgrade to
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: falco-operator
+  syncPolicy:
+    automated:
+      prune: true
+    syncOptions:
+      - CreateNamespace=true
