@@ -42,6 +42,10 @@ spec:
           server:
             controllers:
               main:
+                annotations:
+                  keel.sh/policy: minor
+                  keel.sh/trigger: poll
+                  keel.sh/pollSchedule: "@daily"
                 containers:
                   main:
                     env:
@@ -73,6 +77,12 @@ spec:
                     hosts:
                       - photos.yannikmueller.eu
           machine-learning:
+            controllers:
+              main:
+                annotations:
+                  keel.sh/policy: minor
+                  keel.sh/trigger: poll
+                  keel.sh/pollSchedule: "@daily"
             enabled: true 
             persistence:
               cache:
