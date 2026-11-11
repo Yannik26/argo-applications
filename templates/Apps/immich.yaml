@@ -21,11 +21,11 @@ spec:
       targetRevision: 0.13.4 # Replace with the immich version you'd like to install or upgrade to
       helm:
         values: |
-          # defaultPodOptions:
-          #   annotations:
-          #     keel.sh/policy: minor
-          #     keel.sh/trigger: poll
-          #     keel.sh/pollSchedule: "@daily"
+          defaultPodOptions:
+            annotations:
+              keel.sh/policy: minor
+              keel.sh/trigger: poll
+              keel.sh/pollSchedule: "@daily"
           immich:
             persistence:
               library:
@@ -42,10 +42,10 @@ spec:
           server:
             controllers:
               main:
-                # annotations:
-                #   keel.sh/policy: minor
-                #   keel.sh/trigger: poll
-                #   keel.sh/pollSchedule: "@daily"
+                annotations:
+                  keel.sh/policy: minor
+                  keel.sh/trigger: poll
+                  keel.sh/pollSchedule: "@daily"
                 containers:
                   main:
                     env:
@@ -77,12 +77,12 @@ spec:
                     hosts:
                       - photos.yannikmueller.eu
           machine-learning:
-            # controllers:
-            #   main:
-            #     annotations:
-            #       keel.sh/policy: minor
-            #       keel.sh/trigger: poll
-            #       keel.sh/pollSchedule: "@daily"
+            controllers:
+              main:
+                annotations:
+                  keel.sh/policy: minor
+                  keel.sh/trigger: poll
+                  keel.sh/pollSchedule: "@daily"
             enabled: true 
             persistence:
               cache:
