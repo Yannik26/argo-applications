@@ -21,11 +21,11 @@ spec:
       targetRevision: 0.13.4 # Replace with the immich version you'd like to install or upgrade to
       helm:
         values: |
-          defaultPodOptions:
-            annotations:
-              keel.sh/policy: minor
-              keel.sh/trigger: poll
-              keel.sh/pollSchedule: "@daily"
+          # defaultPodOptions:
+          #   annotations:
+          #     keel.sh/policy: minor
+          #     keel.sh/trigger: poll
+          #     keel.sh/pollSchedule: "@daily"
           immich:
             persistence:
               library:
@@ -91,6 +91,17 @@ spec:
                 type: persistentVolumeClaim 
                 accessMode: ReadWriteMany
                 storageClass: longhorn
+          keel:
+            # keel policy (all/major/minor/patch/force)
+            policy: minor
+            trigger: poll
+            pollSchedule: "@every 1m"
+            # images to track and update
+            images:
+              - repository: server.controllers.main.containers.main.image.repository
+                tag: controllers.main.containers.main.image.tag
+              - repository: machine-learning.controllers.main.containers.main.image.repository
+                tag: controllers.main.containers.main.image.tag
   destination:
     server: https://kubernetes.default.svc
     namespace: immich
