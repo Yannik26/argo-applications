@@ -32,10 +32,10 @@ spec:
                 tag: image.tag
           service:
             enabled: true
-          basicauth:
-            enabled: true
-            user: "test"
-            password: "test"
+          # basicauth:
+          #   enabled: true
+          #   user: "test"
+          #   password: "test"
 
           ingress:
             enabled: true
