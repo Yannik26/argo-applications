@@ -95,7 +95,7 @@ spec:
             # keel policy (all/major/minor/patch/force)
             policy: minor
             trigger: poll
-            pollSchedule: "@every 1m"
+            pollSchedule: "@every 1h"
             # images to track and update
             images:
               - repository: image.repository
