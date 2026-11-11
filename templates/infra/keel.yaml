@@ -20,6 +20,9 @@ spec:
           helmProvider:
             enabled: true
             version: "v3"
+          polling:
+            enabled: true
+            defaultSchedule: "@daily"
           keel:
             policy: patch
             trigger: poll
@@ -27,6 +30,8 @@ spec:
             images:
               - repository: image.repository
                 tag: image.tag
+          service:
+            enabled: true
           ingress:
             enabled: true
             annotations:
