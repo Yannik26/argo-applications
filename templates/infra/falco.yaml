@@ -9,9 +9,9 @@ spec:
     # - repoURL: https://github.com/Yannik26/argo-secrets.git
     #   path: infra/argocd
     #   targetRevision: HEAD
-    # - repoURL: https://github.com/Yannik26/argo-infrastructure.git
-    #   path: infra/falco
-    #   targetRevision: HEAD
+    - repoURL: https://github.com/Yannik26/argo-infrastructure.git
+      path: infra/falco
+      targetRevision: HEAD
     - chart: falco-operator
       repoURL: https://falcosecurity.github.io/charts
       targetRevision: 0.4.0-rc3 # Replace with the ArgoCD version you'd like to install or upgrade to
