@@ -1,31 +1,31 @@
-apiVersion: argoproj.io/v1alpha1
-kind: Application
-metadata:
-  name: sds-status
-  namespace: argocd
-spec:
-  project: default
-  sources:
-    - repoURL: https://github.com/Yannik26/argo-secrets.git
-      path: apps/sds-status
-      targetRevision: HEAD
-    - repoURL: https://github.com/Yannik26/argo-infrastructure.git
-      path: apps/sds-status
-      targetRevision: HEAD
-    - chart: valkey-cluster
-      repoURL: registry-1.docker.io/bitnamicharts
-      targetRevision: 3.0.2
-      helm:
-        releaseName: sds-valkey
-        values: |
-          cluster:
-            nodes: 3
+# apiVersion: argoproj.io/v1alpha1
+# kind: Application
+# metadata:
+#   name: sds-status
+#   namespace: argocd
+# spec:
+#   project: default
+#   sources:
+#     - repoURL: https://github.com/Yannik26/argo-secrets.git
+#       path: apps/sds-status
+#       targetRevision: HEAD
+#     - repoURL: https://github.com/Yannik26/argo-infrastructure.git
+#       path: apps/sds-status
+#       targetRevision: HEAD
+#     - chart: valkey-cluster
+#       repoURL: registry-1.docker.io/bitnamicharts
+#       targetRevision: 3.0.2
+#       helm:
+#         releaseName: sds-valkey
+#         values: |
+#           cluster:
+#             nodes: 3
 
-  destination:
-    server: https://kubernetes.default.svc
-    namespace: sds-status
-  syncPolicy:
-    automated:
-      prune: true
-    syncOptions:
-      - CreateNamespace=true
+#   destination:
+#     server: https://kubernetes.default.svc
+#     namespace: sds-status
+#   syncPolicy:
+#     automated:
+#       prune: true
+#     syncOptions:
+#       - CreateNamespace=true
