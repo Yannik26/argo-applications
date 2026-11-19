@@ -94,6 +94,15 @@ spec:
                   keel.sh/policy: minor
                   keel.sh/trigger: poll
                   keel.sh/pollSchedule: "@daily"
+                containers:
+                  main:
+                    image:
+                      tag: v3.4.2-openvino
+                    resources:
+                      requests:
+                        gpu.intel.com/i915: 1
+                      limits:
+                        gpu.intel.com/i915: 1
             enabled: true 
             persistence:
               cache:
@@ -112,7 +121,7 @@ spec:
               - repository: server.controllers.main.containers.main.image.repository
                 tag: controllers.main.containers.main.image.tag
               - repository: machine-learning.controllers.main.containers.main.image.repository
-                tag: controllers.main.containers.main.image.tag
+                tag: machine-learning.controllers.main.containers.main.image.tag
   destination:
     server: https://kubernetes.default.svc
     namespace: immich
