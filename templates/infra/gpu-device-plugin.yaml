@@ -20,8 +20,8 @@ spec:
             staticPath: /run/cdi
             dynamicPath: /run/cdi
 
-nodeFeatureRules:
-  enabled: true
+          nodeFeatureRules:
+            enabled: true
   destination:
     server: https://kubernetes.default.svc
     namespace: gpu
