@@ -85,6 +85,7 @@ spec:
               size: "20Gi"
               class: "longhorn"
               path: "/data"
+              accessMode: "ReadWriteOnce"
               labels:
                 recurring-job.longhorn.io/backup: enabled
           # storage:
