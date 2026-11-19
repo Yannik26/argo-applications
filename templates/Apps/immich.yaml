@@ -54,7 +54,7 @@ spec:
                   keel.sh/pollSchedule: "@daily"
                 containers:
                   main:
-                     resources:
+                    resources:
                       requests:
                         gpu.intel.com/i915: 0.01
                       limits:
