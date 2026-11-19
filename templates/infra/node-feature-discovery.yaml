@@ -1,0 +1,28 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: node-feature-discovery
+  namespace: argocd
+spec:
+  project: default
+  sources:
+    - chart: node-feature-discovery
+      repoURL: oci://registry.k8s.io/nfd/charts/node-feature-discovery
+      targetRevision: v0.20.1 # Replace with the Longhorn version you'd like to install or upgrade to
+      # helm:
+      #   values: |
+      #     persistence:
+      #       defaultClassReplicaCount: 1
+      #     preUpgradeChecker:
+      #       jobEnabled: false
+      #     service:
+      #       ui: 
+      #         type: LoadBalancer
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: nfd
+  syncPolicy:
+    automated:
+      prune: true
+    syncOptions:
+      - CreateNamespace=true
