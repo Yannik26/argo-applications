@@ -86,7 +86,7 @@ spec:
               class: "longhorn"
               path: "/data"
               labels:
-              recurring-job.longhorn.io/backup=enabled
+                recurring-job.longhorn.io/backup: enabled
           # storage:
           #   enabled: true
           #   size: "15Gi"
