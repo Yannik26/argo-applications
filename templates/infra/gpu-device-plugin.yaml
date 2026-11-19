@@ -9,8 +9,10 @@ spec:
     - chart: intel-device-plugins-gpu
       repoURL: https://intel.github.io/helm-charts/
       targetRevision: 0.37.1 # Replace with the Longhorn version you'd like to install or upgrade to
-      # helm:
-      #   values: |
+      helm:
+        values: |
+          sharedDevNum: 10
+          allocationPolicy: packed
       #     kubeletPlugin:
       #       healthMonitoring:
       #         enabled: false
