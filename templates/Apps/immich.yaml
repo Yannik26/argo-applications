@@ -21,6 +21,12 @@ spec:
       targetRevision: 0.13.4 # Replace with the immich version you'd like to install or upgrade to
       helm:
         values: |
+          controllers:
+            main:
+              containers:
+                main:
+                  image:
+                    tag: v3.4.2
           defaultPodOptions:
             annotations:
               keel.sh/policy: minor
