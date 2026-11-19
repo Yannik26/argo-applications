@@ -48,17 +48,17 @@ spec:
           server:
             controllers:
               main:
-                resources:
-                  requests:
-                    gpu.intel.com/i915: 0.01
-                  limits:
-                    gpu.intel.com/i915: 1
                 annotations:
                   keel.sh/policy: minor
                   keel.sh/trigger: poll
                   keel.sh/pollSchedule: "@daily"
                 containers:
                   main:
+                     resources:
+                      requests:
+                        gpu.intel.com/i915: 0.01
+                      limits:
+                        gpu.intel.com/i915: 1
                     env:
                       DB_USERNAME:
                         valueFrom:
