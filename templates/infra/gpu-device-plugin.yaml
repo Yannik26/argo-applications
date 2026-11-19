@@ -1,27 +1,27 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: gpu-device-plugin
+  name: intel-device-plugins-gpu
   namespace: argocd
 spec:
   project: default
   sources:
-    - chart: gpu-device-plugin
+    - chart: intel-device-plugins-gpu
       repoURL: https://intel.github.io/helm-charts/
-      targetRevision: v0.37.1 # Replace with the Longhorn version you'd like to install or upgrade to
-      helm:
-        values: |
-          kubeletPlugin:
-            healthMonitoring:
-              enabled: false
-            privileged: true
+      targetRevision: 0.37.1 # Replace with the Longhorn version you'd like to install or upgrade to
+      # helm:
+      #   values: |
+      #     kubeletPlugin:
+      #       healthMonitoring:
+      #         enabled: false
+      #       privileged: true
 
-          cdi:
-            staticPath: /run/cdi
-            dynamicPath: /run/cdi
+      #     cdi:
+      #       staticPath: /run/cdi
+      #       dynamicPath: /run/cdi
 
-          nodeFeatureRules:
-            enabled: true
+      #     nodeFeatureRules:
+      #       enabled: true
   destination:
     server: https://kubernetes.default.svc
     namespace: gpu
