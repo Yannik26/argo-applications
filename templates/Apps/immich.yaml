@@ -56,7 +56,7 @@ spec:
                   main:
                     resources:
                       requests:
-                        gpu.intel.com/i915: 0.01
+                        gpu.intel.com/i915: 1
                       limits:
                         gpu.intel.com/i915: 1
                     env:
