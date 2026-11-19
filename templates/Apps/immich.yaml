@@ -46,13 +46,13 @@ spec:
                 accessMode: ReadWriteMany
                 storageClass: longhorn
           server:
-            resources:
-              requests:
-                gpu.intel.com/i915: 0.01
-              limits:
-                gpu.intel.com/i915: 1
             controllers:
               main:
+                resources:
+                  requests:
+                    gpu.intel.com/i915: 0.01
+                  limits:
+                    gpu.intel.com/i915: 1
                 annotations:
                   keel.sh/policy: minor
                   keel.sh/trigger: poll
