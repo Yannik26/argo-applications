@@ -8,7 +8,7 @@ spec:
   sources:
     - chart: node-feature-discovery
       repoURL: oci://registry.k8s.io/nfd/charts/node-feature-discovery
-      targetRevision: v0.20.1 # Replace with the Longhorn version you'd like to install or upgrade to
+      targetRevision: 0.20.1 # Replace with the Longhorn version you'd like to install or upgrade to
       # helm:
       #   values: |
       #     persistence:
